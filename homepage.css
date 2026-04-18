@@ -1,0 +1,157 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Manrope", sans-serif;
+	background: #f5f7fb;
+	color: #1f2937;
+	line-height: 1.5;
+}
+
+.container {
+	width: min(1100px, 92%);
+	margin: 0 auto;
+}
+
+.site-header {
+	background: #ffffff;
+	border-bottom: 1px solid #e5e7eb;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 68px;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	color: inherit;
+	font-weight: 700;
+}
+
+.logo-mark {
+	background: #0f766e;
+	color: #fff;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-weight: 800;
+}
+
+.menu-toggle,
+.menu-button {
+	display: none;
+}
+
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 18px;
+	align-items: center;
+}
+
+.nav-links a {
+	text-decoration: none;
+	color: #1f2937;
+	font-weight: 600;
+}
+
+.has-dropdown {
+	position: relative;
+}
+
+.dropdown {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 6px;
+	padding: 6px;
+	min-width: 170px;
+}
+
+.dropdown a {
+	display: block;
+	padding: 6px 8px;
+}
+
+.has-dropdown:hover .dropdown {
+	display: block;
+}
+
+
+
+@media (max-width: 900px) {
+	.stats,
+	.fixtures-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.footer-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 760px) {
+	.menu-button {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		width: 36px;
+		cursor: pointer;
+	}
+
+	.menu-button span {
+		height: 2px;
+		background: #111827;
+	}
+
+	.nav-links {
+		display: none;
+		position: absolute;
+		top: 68px;
+		left: 4%;
+		right: 4%;
+		background: #fff;
+		border: 1px solid #e5e7eb;
+		border-radius: 8px;
+		padding: 10px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.menu-toggle:checked + .menu-button + .nav-links {
+		display: flex;
+	}
+
+	.dropdown {
+		position: static;
+		display: block;
+		border: 0;
+		padding: 4px 0 0;
+	}
+}
+
+@media (max-width: 560px) {
+	.logo-text {
+		display: none;
+	}
+
+	.stats,
+	.fixtures-grid {
+		grid-template-columns: 1fr;
+	}
+}
