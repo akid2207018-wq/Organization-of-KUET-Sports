@@ -1,0 +1,6 @@
+@OksApi_HostAddress = http://localhost:5019
+
+GET {{OksApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

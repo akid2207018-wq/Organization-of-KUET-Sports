@@ -1,0 +1,15 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace OksApi.Models
+{
+    public class OksContext : DbContext
+    {
+        public OksContext(DbContextOptions<OksContext> options)
+            : base(options)
+        {
+            Database.EnsureCreated();
+        }
+
+        public DbSet<Fixture> Fixtures { get; set; } = null!;
+    }
+}

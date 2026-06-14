@@ -12,7 +12,7 @@
 <body>
 	<header class="site-header" id="top">
 		<nav class="navbar container" aria-label="Main navigation">
-			<a href="#top" class="logo" aria-label="Organization of KUET Sports Home">
+			<a href="homepage.html" class="logo" aria-label="Organization of KUET Sports Home">
 				<span class="logo-mark">OKS</span>
 				<span class="logo-text">Organization of KUET Sports</span>
 			</a>
@@ -26,20 +26,20 @@
 
 			<ul class="nav-links">
 				<li class="has-dropdown">
-					<a href="#">Sports</a>
+					<a href="sports.html">Sports</a>
 					<ul class="dropdown" aria-label="Sports dropdown">
-						<li><a href="#fixtures">Cricket</a></li>
-						<li><a href="#fixtures">Football</a></li>
-						<li><a href="#fixtures">Badminton</a></li>
-						<li><a href="#fixtures">Table Tennis</a></li>
-						<li><a href="#fixtures">Carom</a></li>
-						<li><a href="#fixtures">Chess</a></li>
+						<li><a href="sports.html#cricket">Cricket</a></li>
+						<li><a href="sports.html#football">Football</a></li>
+						<li><a href="sports.html#badminton">Badminton</a></li>
+						<li><a href="sports.html#table-tennis">Table Tennis</a></li>
+						<li><a href="sports.html#carom">Carom</a></li>
+						<li><a href="sports.html#chess">Chess</a></li>
 					</ul>
 				</li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#fixtures">Fixtures</a></li>
-				<li><a href="#join">Join Us</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="fixtures.html">Fixtures</a></li>
+				<li><a href="join.html">Join Us</a></li>
+				<li><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -50,7 +50,10 @@
 				<p class="kicker">Organization of KUET Sports</p>
 				<h1>Organization of KUET Sports</h1>
 				<p class="hero-tagline">Play. Compete. Conquer.</p>
-				<a href="#fixtures" class="btn-primary">Upcoming Matches</a>
+				<div class="hero-actions">
+					<a href="sports.html" class="btn-primary">Explore Sports</a>
+					<a href="join.html" class="btn-secondary">Join the Club</a>
+				</div>
 			</div>
 		</div>
 		<div class="stats container">
@@ -71,85 +74,308 @@
 				<p>Ongoing Leagues</p>
 			</div>
 		</div>
+
+		<div class="section-shell sports-shell" id="sports">
+			<div class="container">
+				<div class="section-head section-head-inline">
+					<div>
+						<p class="section-kicker">Sports Program</p>
+						<h2>Our Sports Views</h2>
+					</div>
+					<p class="section-summary">Quick access to every active sport, its captains, and what the club is working on right now.</p>
+				</div>
+				<div class="sports-grid">
+					<article class="sport-card" id="cricket">
+						<h3>Cricket</h3>
+						<p>League matches, selection trials, and net sessions across the semester.</p>
+						<ul>
+							<li>Captain: Senior selected</li>
+							<li>Next activity: Open net practice</li>
+						</ul>
+					</article>
+					<article class="sport-card" id="football">
+						<h3>Football</h3>
+						<p>Weekly drills, tactical playbooks, and campus tournament planning.</p>
+						<ul>
+							<li>Captain: Team coordinator</li>
+							<li>Focus: Speed and teamwork</li>
+						</ul>
+					</article>
+					<article class="sport-card" id="badminton">
+						<h3>Badminton</h3>
+						<p>Singles and doubles brackets, plus beginner coaching sessions.</p>
+						<ul>
+							<li>Captain: Court lead</li>
+							<li>Focus: Reflex drills</li>
+						</ul>
+					</article>
+					<article class="sport-card" id="table-tennis">
+						<h3>Table Tennis</h3>
+						<p>Fast-paced training for precision, service control, and finals prep.</p>
+						<ul>
+							<li>Captain: Racket team lead</li>
+							<li>Focus: Serve accuracy</li>
+						</ul>
+					</article>
+					<article class="sport-card" id="carom">
+						<h3>Carom</h3>
+						<p>Campus indoor competition with rotating pairs and ranking rounds.</p>
+						<ul>
+							<li>Captain: Indoor games lead</li>
+							<li>Focus: Precision play</li>
+						</ul>
+					</article>
+					<article class="sport-card" id="chess">
+						<h3>Chess</h3>
+						<p>Strategy tournaments, puzzles, and inter-department challenge nights.</p>
+						<ul>
+							<li>Captain: Strategy lead</li>
+							<li>Focus: Tournament prep</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</div>
+
+		<div class="section-shell about-shell" id="about">
+			<div class="container about-grid">
+				<div>
+					<p class="section-kicker">About the Club</p>
+					<h2>Built for campus sport, team culture, and open participation.</h2>
+					<p class="section-copy">Organization of KUET Sports coordinates training, campus fixtures, and student-driven tournaments so every department can compete with structure and support.</p>
+				</div>
+				<div class="about-highlights">
+					<div class="highlight-card">
+						<h3>Mission</h3>
+						<p>Grow sports participation across KUET with a fair, active, and welcoming program.</p>
+					</div>
+					<div class="highlight-card">
+						<h3>What we run</h3>
+						<p>Trials, fixtures, tournaments, captain selection, and match-day coordination.</p>
+					</div>
+					<div class="highlight-card">
+						<h3>Who can join</h3>
+						<p>Any KUET student interested in training, competing, or helping organize events.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="fixtures container" id="fixtures" aria-labelledby="fixtures-title">
 			<div class="section-head">
 				<p class="section-kicker">Match Center</p>
 				<h2 id="fixtures-title">Upcoming Fixtures</h2>
+				<button class="btn-primary" onclick="document.getElementById('add-fixture-modal').style.display='block'">Add Fixture</button>
 			</div>
+			<p class="section-summary fixtures-summary">Track upcoming matches by sport, opponent, venue, and time. Add new fixtures directly from the club admin view.</p>
 
-			<div class="fixtures-grid">
-			<div class="fixture-card">
-				<h3>Cricket</h3>
-				<ul>
-					<li><strong>21 Apr</strong> vs ABC College - Ground A - 4:00 PM</li>
-					<li><strong>25 Apr</strong> vs DEF Academy - City Oval - 3:30 PM</li>
-					<li><strong>29 Apr</strong> vs GHI University - KUET Ground - 2:00 PM</li>
-				</ul>
+			<div class="fixtures-grid" id="fixtures-grid">
+<!-- Fixtures will be loaded dynamically here -->
 			</div>
-			<div class="fixture-card">
-				<h3>Football</h3>
-				<ul>
-					<li><strong>20 Apr</strong> vs MEC United - Main Field - 5:00 PM</li>
-					<li><strong>24 Apr</strong> vs Tech FC - University Ground - 4:15 PM</li>
-					<li><strong>30 Apr</strong> vs Archers XI - Stadium - 6:00 PM</li>
-				</ul>
-			</div>
-			<div class="fixture-card">
-				<h3>Badminton</h3>
-				<ul>
-					<li><strong>22 Apr</strong> vs Delta Club - Indoor Hall - 6:30 PM</li>
-					<li><strong>27 Apr</strong> vs Elite Racquets - Court 2 - 7:00 PM</li>
-					<li><strong>01 May</strong> vs Smashers Hub - Indoor Hall - 5:45 PM</li>
-				</ul>
-			</div>
-			<div class="fixture-card">
-				<h3>Table Tennis</h3>
-				<ul>
-					<li><strong>19 Apr</strong> vs Sharp Spin - Indoor Hall - 3:00 PM</li>
-					<li><strong>23 Apr</strong> vs Net Ninjas - Court 1 - 3:45 PM</li>
-					<li><strong>28 Apr</strong> vs Tigers TT - Indoor Hall - 4:30 PM</li>
-				</ul>
-			</div>
-			<div class="fixture-card">
-				<h3>Carom</h3>
-				<ul>
-					<li><strong>20 Apr</strong> vs Precision Club - Room 101 - 2:30 PM</li>
-					<li><strong>26 Apr</strong> vs Strikers - Indoor Complex - 2:00 PM</li>
-					<li><strong>02 May</strong> vs Pocket Kings - Room 101 - 1:30 PM</li>
-				</ul>
-			</div>
-			<div class="fixture-card">
-					<h3>Chess</h3>
-					<ul>
-						<li><strong>21 Apr</strong> vs Mind Masters - Room 101 - 11:00 AM</li>
-						<li><strong>25 Apr</strong> vs University Knights - Indoor Hall - 12:30 PM</li>
-						<li><strong>03 May</strong> vs Tactical Club - Seminar Hall - 10:00 AM</li>
+		</div>
+
+		<div class="section-shell join-shell" id="join">
+			<div class="container join-grid">
+				<div>
+					<p class="section-kicker">Join Us</p>
+					<h2>Become part of the training pool, event team, or sports committee.</h2>
+					<p class="section-copy">Use this form to express interest in a sport, coaching support, or event volunteering. The club can follow up with practice schedules and selection updates.</p>
+					<ul class="join-points">
+						<li>Player registration for any available sport</li>
+						<li>Volunteer signup for fixtures and event support</li>
+						<li>Updates for trials, notices, and team announcements</li>
 					</ul>
+				</div>
+				<form class="join-form">
+					<label>
+						Full Name
+						<input type="text" placeholder="Your name" />
+					</label>
+					<label>
+						Department
+						<input type="text" placeholder="EEE, CSE, CE..." />
+					</label>
+					<label>
+						Preferred Sport
+						<select>
+							<option>Cricket</option>
+							<option>Football</option>
+							<option>Badminton</option>
+							<option>Table Tennis</option>
+							<option>Carom</option>
+							<option>Chess</option>
+						</select>
+					</label>
+					<label>
+						Interest
+						<textarea rows="4" placeholder="Training, tournaments, or volunteering"></textarea>
+					</label>
+					<button type="button" class="btn-primary">Request to Join</button>
+				</form>
 			</div>
+		</div>
+
+		<!-- Add Fixture Modal -->
+		<div id="add-fixture-modal" style="display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.4);">
+			<div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:80%; max-width:500px; border-radius:8px;">
+				<span style="color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('add-fixture-modal').style.display='none'">&times;</span>
+				<h2>Add New Fixture</h2>
+				<form id="add-fixture-form" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+					<label>Sport Type: <input type="text" id="sportType" required style="width:100%; padding:8px;"></label>
+					<label>Opponent: <input type="text" id="opponent" required style="width:100%; padding:8px;"></label>
+					<label>Venue: <input type="text" id="venue" required style="width:100%; padding:8px;"></label>
+					<label>Date: <input type="date" id="date" required style="width:100%; padding:8px;"></label>
+					<label>Time: <input type="time" id="time" required style="width:100%; padding:8px;"></label>
+					<button type="submit" class="btn-primary" style="align-self:flex-start;">Submit</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="section-shell contact-shell" id="contact">
+			<div class="container contact-grid">
+				<div>
+					<p class="section-kicker">Contact</p>
+					<h2>Talk to the club about fixtures, practice, or membership.</h2>
+					<p class="section-copy">We can be reached by email, phone, or on campus during practice hours. Use the quick links below to start a conversation or find us on campus.</p>
+				</div>
+				<div class="contact-panel">
+					<p><strong>Email:</strong> organizationofkuetsports@kuet.ac.bd</p>
+					<p><strong>Phone:</strong> +880 1700 000000</p>
+					<p><strong>Location:</strong> University Ground, KUET Campus</p>
+					<div class="contact-actions">
+						<a href="mailto:organizationofkuetsports@kuet.ac.bd" class="btn-secondary">Email Us</a>
+						<a href="#top" class="btn-primary">Back to Top</a>
+					</div>
+				</div>
 			</div>
 		</div>
 
 	</div>
 
-	<div class="site-footer" id="contact">
+	<div class="site-footer">
 		<div class="container footer-grid">
 			<div>
-				<h2>Contact</h2>
-				<p>Email: organizationofkuetsports@kuet.ac.bd</p>
-				<p>Phone: +880 1700 000000</p>
-				<a href="#" class="footer-link">Join WhatsApp Group</a>
+				<h2>Join Community</h2>
+				<p>Get notices, lineups, and event updates from the club group.</p>
+				<a href="join.html" class="footer-link">Go to Join Form</a>
 			</div>
 			<div>
-				<h2>Visit Us</h2>
+				<h2>Practice Hours</h2>
 				<p>University Ground, KUET Campus</p>
 				<p>Every Day - 4 PM to 6 PM</p>
 			</div>
 			<div>
-				<h2>Location Map</h2>
-				<a href="#" class="map-thumb">Campus Map Preview</a>
+				<h2>Useful Links</h2>
+				<a href="sports.html" class="footer-link">Sports Views</a><br>
+				<a href="fixtures.html" class="footer-link">Fixtures</a><br>
+				<a href="contact.html" class="footer-link">Contact Section</a>
 			</div>
 		</div>
 		<p class="copyright">&copy; 2026 Organization of KUET Sports. All rights reserved.</p>
 	</div>
+
+	<script>
+		const API_URLS = (() => {
+			const urls = [
+				'http://localhost:5019/api/Fixtures',
+				'https://localhost:7163/api/Fixtures',
+				'https://localhost:7025/api/Fixtures'
+			];
+
+			if (window.location.origin && window.location.origin !== 'null') {
+				urls.unshift(`${window.location.origin}/api/Fixtures`);
+			}
+
+			return [...new Set(urls)];
+		})();
+
+		function showFixtureError(message) {
+			console.error(message);
+			alert(message);
+		}
+
+		async function fetchWithFallback(path, options) {
+			let lastError = null;
+
+			for (const url of API_URLS.map(base => `${base}${path}`)) {
+				try {
+					const response = await fetch(url, options);
+					if (!response.ok) {
+						const errorText = await response.text();
+						throw new Error(errorText || `Request failed (${response.status})`);
+					}
+
+					return response;
+				} catch (error) {
+					lastError = error;
+				}
+			}
+
+			throw lastError || new Error('Request failed');
+		}
+
+		async function loadFixtures() {
+			try {
+				const response = await fetchWithFallback('', undefined);
+				const fixtures = await response.json();
+				const grid = document.getElementById('fixtures-grid');
+				grid.innerHTML = '';
+
+				// Organize by sport type
+				const grouped = fixtures.reduce((acc, current) => {
+					if (!acc[current.sportsType]) acc[current.sportsType] = [];
+					acc[current.sportsType].push(current);
+					return acc;
+				}, {});
+
+				for (const [sport, matches] of Object.entries(grouped)) {
+					const card = document.createElement('div');
+					card.className = 'fixture-card';
+					card.innerHTML = `<h3>${sport}</h3>`;
+					const ul = document.createElement('ul');
+
+					matches.forEach(m => {
+						const d = new Date(m.date);
+						const li = document.createElement('li');
+						li.innerHTML = `<strong>${d.toLocaleDateString()}</strong> vs ${m.opponent} - ${m.venue} - ${m.time}`;
+						ul.appendChild(li);
+					});
+
+					card.appendChild(ul);
+					grid.appendChild(card);
+				}
+			} catch (error) {
+				showFixtureError(`Failed to load fixtures: ${error.message}`);
+			}
+		}
+
+		document.getElementById('add-fixture-form').addEventListener('submit', async function(e) {
+			e.preventDefault();
+
+			const payload = {
+				sportsType: document.getElementById('sportType').value,
+				opponent: document.getElementById('opponent').value,
+				venue: document.getElementById('venue').value,
+				date: document.getElementById('date').value,
+				time: document.getElementById('time').value + ":00" // Time format hh:mm:ss
+			};
+
+			try {
+				const response = await fetchWithFallback('', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(payload)
+				});
+
+				document.getElementById('add-fixture-modal').style.display = 'none';
+				this.reset();
+				loadFixtures();
+			} catch (error) {
+				showFixtureError(`Failed to add fixture: ${error.message}`);
+			}
+		});
+
+		// Load initial fixtures
+		loadFixtures();
+	</script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace OksApi.Models
+{
+    public class Fixture
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public string SportsType { get; set; } = string.Empty;
+
+        [Required]
+        public string Opponent { get; set; } = string.Empty;
+
+        [Required]
+        public string Venue { get; set; } = string.Empty;
+
+        public DateTime Date { get; set; }
+        public TimeSpan Time { get; set; }
+    }
+}

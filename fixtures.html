@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Organization of KUET Sports | Fixtures</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+	<header class="site-header" id="top">
+		<nav class="navbar container" aria-label="Main navigation">
+			<a href="homepage.html" class="logo" aria-label="Organization of KUET Sports Home">
+				<span class="logo-mark">OKS</span>
+				<span class="logo-text">Organization of KUET Sports</span>
+			</a>
+
+			<input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+			<label for="menu-toggle" class="menu-button" aria-hidden="true">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+
+			<ul class="nav-links">
+				<li class="has-dropdown">
+					<a href="sports.html">Sports</a>
+					<ul class="dropdown" aria-label="Sports dropdown">
+						<li><a href="sports.html#cricket">Cricket</a></li>
+						<li><a href="sports.html#football">Football</a></li>
+						<li><a href="sports.html#badminton">Badminton</a></li>
+						<li><a href="sports.html#table-tennis">Table Tennis</a></li>
+						<li><a href="sports.html#carom">Carom</a></li>
+						<li><a href="sports.html#chess">Chess</a></li>
+					</ul>
+				</li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="fixtures.html">Fixtures</a></li>
+				<li><a href="join.html">Join Us</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="page-hero">
+			<div class="container page-hero-card">
+				<p class="kicker">Match Center</p>
+				<h1>Upcoming fixtures, team schedules, and match-day updates.</h1>
+				<p class="section-copy">Use this page to review the latest games or add a fixture when the club schedules a new match.</p>
+				<div class="hero-actions" style="margin-top:16px;">
+					<button class="btn-primary" type="button" onclick="document.getElementById('add-fixture-modal').style.display='block'">Add Fixture</button>
+					<a class="btn-secondary" href="join.html">Join a Team</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="section-shell fixtures">
+			<div class="container">
+				<div class="section-head section-head-inline">
+					<div>
+						<p class="section-kicker">Fixture List</p>
+						<h2 id="fixtures-title">Upcoming Fixtures</h2>
+					</div>
+					<p class="section-summary">Track upcoming matches by sport, opponent, venue, and time.</p>
+				</div>
+				<div class="fixtures-grid" id="fixtures-grid">
+					<div class="fixture-card">Loading fixtures...</div>
+				</div>
+			</div>
+		</section>
+
+		<div id="add-fixture-modal" style="display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.4);">
+			<div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:80%; max-width:500px; border-radius:8px;">
+				<span style="color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('add-fixture-modal').style.display='none'">&times;</span>
+				<h2>Add New Fixture</h2>
+				<form id="add-fixture-form" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+					<label>Sport Type: <input type="text" id="sportType" required style="width:100%; padding:8px;"></label>
+					<label>Opponent: <input type="text" id="opponent" required style="width:100%; padding:8px;"></label>
+					<label>Venue: <input type="text" id="venue" required style="width:100%; padding:8px;"></label>
+					<label>Date: <input type="date" id="date" required style="width:100%; padding:8px;"></label>
+					<label>Time: <input type="time" id="time" required style="width:100%; padding:8px;"></label>
+					<button type="submit" class="btn-primary" style="align-self:flex-start;">Submit</button>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-grid">
+			<div>
+				<h2>Join Community</h2>
+				<p>Get notices, lineups, and event updates from the club group.</p>
+				<a href="join.html" class="footer-link">Go to Join Form</a>
+			</div>
+			<div>
+				<h2>Practice Hours</h2>
+				<p>University Ground, KUET Campus</p>
+				<p>Every Day - 4 PM to 6 PM</p>
+			</div>
+			<div>
+				<h2>Useful Links</h2>
+				<a href="homepage.html" class="footer-link">Home</a><br>
+				<a href="sports.html" class="footer-link">Sports</a><br>
+				<a href="contact.html" class="footer-link">Contact</a>
+			</div>
+		</div>
+		<p class="copyright">&copy; 2026 Organization of KUET Sports. All rights reserved.</p>
+	</footer>
+
+	<script>
+		const API_URLS = [
+			'http://localhost:5019/api/Fixtures',
+			'https://localhost:7163/api/Fixtures',
+			'https://localhost:7025/api/Fixtures'
+		];
+
+		function showFixtureError(message) {
+			console.error(message);
+			alert(message);
+		}
+
+		async function fetchWithFallback(options) {
+			let lastError = null;
+
+			for (const url of API_URLS) {
+				try {
+					const response = await fetch(url, options);
+					if (!response.ok) {
+						const errorText = await response.text();
+						throw new Error(errorText || `Request failed (${response.status})`);
+					}
+
+					return response;
+				} catch (error) {
+					lastError = error;
+				}
+			}
+
+			throw lastError || new Error('Request failed');
+		}
+
+		async function loadFixtures() {
+			try {
+				const response = await fetchWithFallback();
+				const fixtures = await response.json();
+				const grid = document.getElementById('fixtures-grid');
+				grid.innerHTML = '';
+
+				if (!fixtures.length) {
+					grid.innerHTML = '<div class="fixture-card">No fixtures scheduled yet.</div>';
+					return;
+				}
+
+				const grouped = fixtures.reduce((acc, current) => {
+					if (!acc[current.sportsType]) acc[current.sportsType] = [];
+					acc[current.sportsType].push(current);
+					return acc;
+				}, {});
+
+				for (const [sport, matches] of Object.entries(grouped)) {
+					const card = document.createElement('div');
+					card.className = 'fixture-card';
+					card.innerHTML = `<h3>${sport}</h3>`;
+					const ul = document.createElement('ul');
+
+					matches.forEach(m => {
+						const d = new Date(m.date);
+						const li = document.createElement('li');
+						li.innerHTML = `<strong>${d.toLocaleDateString()}</strong> vs ${m.opponent} - ${m.venue} - ${m.time}`;
+						ul.appendChild(li);
+					});
+
+					card.appendChild(ul);
+					grid.appendChild(card);
+				}
+			} catch (error) {
+				showFixtureError(`Failed to load fixtures: ${error.message}`);
+			}
+		}
+
+		document.getElementById('add-fixture-form').addEventListener('submit', async function(e) {
+			e.preventDefault();
+
+			const payload = {
+				sportsType: document.getElementById('sportType').value,
+				opponent: document.getElementById('opponent').value,
+				venue: document.getElementById('venue').value,
+				date: document.getElementById('date').value,
+				time: document.getElementById('time').value + ':00'
+			};
+
+			try {
+				const response = await fetchWithFallback({
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(payload)
+				});
+
+				document.getElementById('add-fixture-modal').style.display = 'none';
+				this.reset();
+				loadFixtures();
+			} catch (error) {
+				showFixtureError(`Failed to add fixture: ${error.message}`);
+			}
+		});
+
+		loadFixtures();
+	</script>
+</body>
+</html>

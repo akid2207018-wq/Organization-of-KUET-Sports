@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Organization of KUET Sports | Home</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+	<header class="site-header" id="top">
+		<nav class="navbar container" aria-label="Main navigation">
+			<a href="#top" class="logo" aria-label="Organization of KUET Sports Home">
+				<span class="logo-mark">OKS</span>
+				<span class="logo-text">Organization of KUET Sports</span>
+			</a>
+
+			<input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+			<label for="menu-toggle" class="menu-button" aria-hidden="true">
+				<span></span>
+				<span></span>
+				<span></span>
+			</label>
+
+			<ul class="nav-links">
+				<li class="has-dropdown">
+					<a href="#">Sports</a>
+					<ul class="dropdown" aria-label="Sports dropdown">
+						<li><a href="#fixtures">Cricket</a></li>
+						<li><a href="#fixtures">Football</a></li>
+						<li><a href="#fixtures">Badminton</a></li>
+						<li><a href="#fixtures">Table Tennis</a></li>
+						<li><a href="#fixtures">Carom</a></li>
+						<li><a href="#fixtures">Chess</a></li>
+					</ul>
+				</li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#fixtures">Fixtures</a></li>
+				<li><a href="#join">Join Us</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div>
+		<div class="hero">
+			<div class="hero-content container">
+				<p class="kicker">Organization of KUET Sports</p>
+				<h1>Organization of KUET Sports</h1>
+				<p class="hero-tagline">Play. Compete. Conquer.</p>
+				<a href="#fixtures" class="btn-primary">Upcoming Matches</a>
+			</div>
+		</div>
+		<div class="stats container">
+			<div class="stat-card">
+				<h2>6</h2>
+				<p>Sports</p>
+			</div>
+			<div class="stat-card">
+				<h2>120+</h2>
+				<p>Members</p>
+			</div>
+			<div class="stat-card">
+				<h2>12</h2>
+				<p>Trophies</p>
+			</div>
+			<div class="stat-card">
+				<h2>8</h2>
+				<p>Ongoing Leagues</p>
+			</div>
+		</div>
+		<div class="fixtures container" id="fixtures" aria-labelledby="fixtures-title">
+			<div class="section-head">
+				<p class="section-kicker">Match Center</p>
+				<h2 id="fixtures-title">Upcoming Fixtures</h2>
+				<button class="btn-primary" onclick="document.getElementById('add-fixture-modal').style.display='block'">Add Fixture</button>
+			</div>
+
+			<div class="fixtures-grid" id="fixtures-grid">
+<!-- Fixtures will be loaded dynamically here -->
+			</div>
+		</div>
+
+		<!-- Add Fixture Modal -->
+		<div id="add-fixture-modal" style="display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.4);">
+			<div style="background-color:#fff; margin:10% auto; padding:20px; border:1px solid #888; width:80%; max-width:500px; border-radius:8px;">
+				<span style="color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;" onclick="document.getElementById('add-fixture-modal').style.display='none'">&times;</span>
+				<h2>Add New Fixture</h2>
+				<form id="add-fixture-form" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+					<label>Sport Type: <input type="text" id="sportType" required style="width:100%; padding:8px;"></label>
+					<label>Opponent: <input type="text" id="opponent" required style="width:100%; padding:8px;"></label>
+					<label>Venue: <input type="text" id="venue" required style="width:100%; padding:8px;"></label>
+					<label>Date: <input type="date" id="date" required style="width:100%; padding:8px;"></label>
+					<label>Time: <input type="time" id="time" required style="width:100%; padding:8px;"></label>
+					<button type="submit" class="btn-primary" style="align-self:flex-start;">Submit</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="site-footer" id="contact">
+		<div class="container footer-grid">
+			<div>
+				<h2>Contact</h2>
+				<p>Email: organizationofkuetsports@kuet.ac.bd</p>
+				<p>Phone: +880 1700 000000</p>
+				<a href="#" class="footer-link">Join WhatsApp Group</a>
+			</div>
+			<div>
+				<h2>Visit Us</h2>
+				<p>University Ground, KUET Campus</p>
+				<p>Every Day - 4 PM to 6 PM</p>
+			</div>
+			<div>
+				<h2>Location Map</h2>
+				<a href="#" class="map-thumb">Campus Map Preview</a>
+			</div>
+		</div>
+		<p class="copyright">&copy; 2026 Organization of KUET Sports. All rights reserved.</p>
+	</div>
+</body>
+</html>
