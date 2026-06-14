@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OksApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95d48199db9ed4c4507c00ace57ca74a97d1b283")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da6d136dc9f9116e860c295a0a5bafe4489ef8b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("OksApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OksApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
